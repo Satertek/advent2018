@@ -2,9 +2,8 @@
 # Day 1
 # Brian Irelan
 
-# Notes:  Took a few minutes (145 iterations) to find the duplicate frequency,
-#         and about 5 minutes to crunch on my laptop, solution could be improved
-#         for speed.
+# Notes:  Took a 145 iterations to find the duplicate frequency, and about
+#         5 minutes to crunch on my laptop, solution could be improved for speed.
 
 # Config
 
