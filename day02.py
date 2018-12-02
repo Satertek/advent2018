@@ -34,21 +34,22 @@ def _puzzle_two():
     with open(input_file) as f:
         i = 0
         for line1 in f:
-            i += len(line1)+1
+            i += len(line1) + 1
             for line2 in f:
                 logging.debug("Comparing: '{}' and '{}'".format(
                     line1.strip(), line2.strip()))
                 match_count = 0
                 for index, letter in enumerate(line1.strip()):
-                    if letter == line2.strip()[index]:
+                    if letter == line2[index]:
                         logging.debug("Matched: {} {}".format(
                             letter, line2[index]))
                         match_count += 1
                 if match_count > 0:
                     logging.debug("Match Count: {} of {}".format(
                         match_count, len(line1.strip())))
-                if match_count == len(line1.strip())-1: # Matched all chars but 1
-                    logging.info("Found Prototype Fabric IDs: {}, {}".format(line1.strip(), line2.strip()))
+                if match_count == len(line1.strip())-1:  # Matched all chars but 1
+                    logging.info("Found Prototype Fabric IDs: {}, {}".format(
+                        line1.strip(), line2.strip()))
                     return "".join(sorted(set(line1).intersection(line2), key=line1.index))
             f.seek(i)
 
