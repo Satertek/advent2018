@@ -31,7 +31,7 @@ def _puzzle_one():
 
 
 def _puzzle_two():
-    with open(input) as f:
+    with open(input_file) as f:
         i = 0
         for line1 in f:
             i += len(line1)+1
