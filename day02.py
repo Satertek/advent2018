@@ -4,16 +4,18 @@
 
 import logging
 
-input = "day02_input.txt"
+input_file = "day02_input.txt"
+
 
 def puzzles():
     return [_puzzle_one(), _puzzle_two()]
+
 
 def _puzzle_one():
     two_of_letter = 0
     three_of_letter = 0
 
-    with open(input) as f:
+    with open(input_file) as f:
         for line in f:
             checked_letters = []
             letter_count_list = []
@@ -27,11 +29,12 @@ def _puzzle_one():
                 line, letter_count_list.count(2), letter_count_list.count(3)))
     return two_of_letter * three_of_letter
 
+
 def _puzzle_two():
     with open(input) as f:
         i = 0
         for line1 in f:
-            i+=len(line1)+1
+            i += len(line1)+1
             for line2 in f:
                 logging.debug("Comparing: '{}' and '{}'".format(
                     line1.strip(), line2.strip()))
@@ -46,11 +49,12 @@ def _puzzle_two():
                         match_count, len(line1.strip())))
                 if match_count == len(line1.strip())-1: # Matched all chars but 1
                     logging.info("Found Prototype Fabric IDs: {}, {}".format(line1.strip(), line2.strip()))
-                    return "".join(sorted(set(line1).intersection(line2),key=line1.index))
+                    return "".join(sorted(set(line1).intersection(line2), key=line1.index))
             f.seek(i)
 
+
 if __name__ == "__main__":
-    #logging.basicConfig(level=logging.DEBUG)
+    # logging.basicConfig(level=logging.DEBUG)
     print("Processing Input...", flush=True)
     puzzle_one, puzzle_two = puzzles()
     print("Puzzle 1): {}".format(puzzle_one))
