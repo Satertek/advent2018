@@ -76,7 +76,10 @@ for guard in list(guard_id['guards']):
     sleep_list = guard_id['guards'][guard]['minutes_asleep']
     this_sleepy_time = int(sleep_list.index(max(sleep_list)))
     heaviest_sleeper = sum(sleep_list)
-    sleepiest_times.append({'guard':guard, 'total':heaviest_sleeper, 'min':this_sleepy_time, 'times':sleep_list[this_sleepy_time]})
+    sleepiest_times.append({'guard':guard,
+                            'total':heaviest_sleeper,
+                            'min':this_sleepy_time,
+                            'times':sleep_list[this_sleepy_time]})
     print("{:4d}\t{:3d}\t{:2d} ({:2d})\t{}".format(int(guard),
                               heaviest_sleeper,
                               this_sleepy_time,
